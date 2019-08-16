@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 const mongoose = require('mongoose');
-const userRouter = require('./Routes/API/user');
+const userRouter = require('./Routes/API/user/index');
 
 mongoose.connect('mongodb://localhost:27017/xedike',{userNewUrlParser:true})
 .then(()=> console.log('connected sucessfull '))
@@ -11,20 +11,13 @@ mongoose.connect('mongodb://localhost:27017/xedike',{userNewUrlParser:true})
 //middleware 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
+// middlewarae serve static files 
+app.use('/uploads/avartas',express.static('./uploads/avartas'))
 
 // test 
-// app.use((req,res,next) =>{
-//     console.log('miidleware 1')
-//     next()
-// },(req,res,next) =>{
-//     console.log('miidleware 2')
-//     next()
-// },(req,res,next) =>{
-//     console.log('miidleware 3')
-//     next()
-// })
+
 // router handler 
-app.use('/',userRouter)
+app.use('/api/users',userRouter)
 const port = process.env.PORT || 5000 // lay post cua process hoac 5000 
 
 

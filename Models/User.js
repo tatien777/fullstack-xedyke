@@ -8,6 +8,8 @@ const USerSchema = new mongoose.Schema({
   userType: { type: String, required: true }, // passenger,driver,admin
   phone: { type: String, required: true }, // +84 ...
   registerDate: { type: Date, default: Date.now() },
+  avarta: {type: String,default: ''}
+  ,
 //   numberOfTrips: {type: Number, required: true},
 // numberOfKms
 // avarta 
