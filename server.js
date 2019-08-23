@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const userRouter = require('./Routes/API/user/index');
+const tripRouter = require('./Routes/API/trip/index')
 
 mongoose.connect('mongodb://localhost:27017/xedike',{userNewUrlParser:true})
 .then(()=> console.log('connected sucessfull '))
@@ -18,6 +19,7 @@ app.use('/uploads/avartas',express.static('./uploads/avartas'))
 
 // router handler 
 app.use('/api/users',userRouter)
+app.use('/api/trips', tripRouter) /// call api trip 
 const port = process.env.PORT || 5000 // lay post cua process hoac 5000 
 
 
