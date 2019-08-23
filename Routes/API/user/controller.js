@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 
 const { User } = require("../../../Models/User");
 const bcrypt = require("bcryptjs");
-
+const {validatePostInput} = require('../../../validations/user/validatePostInput')
 module.exports.getUsers = (req, res, next) => {
   User.find()
     .then(users => {
@@ -19,10 +19,14 @@ module.exports.getUsers = (req, res, next) => {
 // desc : create new  user
 // method: post
 // access: PUBLIC
-module.exports.createUser = (req, res, next) => {
+module.exports.createUser = async (req, res, next) => {
+  const { email, password,password2, DOB, userType, phone,avarta } = req.body;
   // validation
+  const {isValid,errors} = await validatePostInput(req.body)
+  // console.log('isValid',isValid)
+  if(!isValid) return res.status(400).json(errors)
   // data = req.body
-  const { email, password, DOB, userType, phone,avarta } = req.body;
+ 
   const newUser = new User({
     email,
     password,
