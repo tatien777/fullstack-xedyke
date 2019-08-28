@@ -10,9 +10,9 @@ require("dotenv").config();
 
 const mongoUri =
   process.env.NODE_ENV === "dev"
-    ? process.env.MONGO_URI_DEV
+    ? process.env.MONGO_URI_LOCAL
     : process.env.MONGO_URI_PRODUCT;
-    
+
 mongoose
   .connect(mongoUri, { userNewUrlParser: true })
   .then(() => console.log("connected sucessfull "))
