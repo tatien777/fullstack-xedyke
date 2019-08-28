@@ -7,11 +7,24 @@ const tripRouter = require("./Routes/API/trip/index");
 
 // dotnv
 require("dotenv").config();
+let mongoUri = "";
+console.log(process.env.NODE_ENV, "process.env.NODE_ENV");
+switch (process.env.NODE_ENV) {
+  case "dev":
+    mongoUri = process.env.MONGO_URI_LOCAL;
+    break;
+  case "prod":
+    mongoUri = process.env.MONGO_URI_PRODUCT;
+    break;
+  default:
+    break;
+}
+// mongoUri =
+//   process.env.NODE_ENV === "prod"
+//     ? process.env.MONGO_URI_LOCAL
+//     : process.env.MONGO_URI_PRODUCT;
 
-const mongoUri =
-  process.env.NODE_ENV === "dev"
-    ? process.env.MONGO_URI_LOCAL
-    : process.env.MONGO_URI_PRODUCT;
+console.log(mongoUri, "mongoUri");
 
 mongoose
   .connect(mongoUri, { userNewUrlParser: true })
