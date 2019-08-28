@@ -9,6 +9,9 @@ mongoose.connect('mongodb+srv://admin:minhtien1995@cluster0-yskx5.mongodb.net/xe
 .then(()=> console.log('connected sucessfull '))
 .catch(err => console.log(err))
 
+
+// public 
+app.use("/",express.static('public'));
 //middleware 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
