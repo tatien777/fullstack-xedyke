@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const userRouter = require('./Routes/API/user/index');
 const tripRouter = require('./Routes/API/trip/index')
 
-mongoose.connect('mongodb://localhost:27017/xedike',{userNewUrlParser:true})
+mongoose.connect('mongodb+srv://admin:minhtien1995@cluster0-yskx5.mongodb.net/xedike?retryWrites=true&w=majority',{userNewUrlParser:true})
 .then(()=> console.log('connected sucessfull '))
 .catch(err => console.log(err))
 

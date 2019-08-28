@@ -10,7 +10,7 @@ a. Mô tả: thêm mới một chuyến đi
 b. PRIVATE: chỉ có userType=driver + đang đăng nhập mới được access
 */
 
-const { Trip } = require('../../../models/Trip')
+const { Trip } = require('../../../Models/Trip')
 // const { User } = require('../../../models/User')
 
 // driver
