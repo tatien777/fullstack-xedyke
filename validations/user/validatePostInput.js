@@ -48,7 +48,9 @@ const validatePostInput = async data => {
   // UserType 
   if(_.isEmpty(data.userType)){
       errors.date = "User type is required"
-  } else if (!validator.equals(data.userType,'driver') && !validator.equals(data.userType,"passenger") && !validator.equals(data.userType,"admin")){
+  } else if 
+  (!validator.equals(data.userType,'driver') && !validator.equals(data.userType,"passenger") && !validator.equals(data.userType,"admin"))
+  {
       errors.userType = "User type is not valid "
   }
   // phone 

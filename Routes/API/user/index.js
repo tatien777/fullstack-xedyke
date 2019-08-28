@@ -13,7 +13,8 @@ const {uploadImage} = require('../../../middlewares/uploadImage');
 const authenticate = (req, res, next) => {
     const { token } = req.headers;
     jwt.verify(token, "XEDIKE", (err, decoded) => {
-      if (err) return res.status(401).json({ message: "Token invalid" })
+      if (err) 
+      return res.status(401).json({ message: "Token invalid" })
       if (decoded) {
         req.user = decoded;  
         return next()
