@@ -129,7 +129,7 @@ module.exports.login = (req, res, next) => {
             email: user.email,
             userType: user.userType
           };
-          jwt.sign(payload, "XEDIKE", { expiresIn: 3600 }, (err, token) => {
+          jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: 3600 }, (err, token) => {
             if (err) res.json(err);
             res.status(200).json({
               success: true,
