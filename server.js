@@ -9,6 +9,9 @@ mongoose.connect('mongodb://localhost:27017/xedike',{userNewUrlParser:true})
 .then(()=> console.log('connected sucessfull '))
 .catch(err => console.log(err))
 
+// public
+app.use('/',express.static('public'))
+
 //middleware 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
